@@ -32,7 +32,7 @@ node  {
 		try {
 		// notify via slack that a build has started
                 notifyBuild('STARTED Build Project ...')
-		doker-hello-world = docker.build('doker-hello-world -f Dockerfile')
+		doker-hello-world = docker.build('doker-hello-world')
 	        notifyBuild('DONE Build Project!')		
 		} catch(e) {
             currentBuild.result = "Checkout failed"
