@@ -1,5 +1,10 @@
 #!groovy
 node  {
+	// define a constant for the microservice that this Jenkinsfile refers to
+	def microserviceName = "docker-hello-world"
+	// define a constant for the http proxy to use to build the production image
+	def httpProxyUrl = "http://proxy.reply.it:8080"
+
 	def test
 	// Stage 0 is the prefetch of the source code
 		stage('Prefetch') {
@@ -32,7 +37,8 @@ node  {
 		try {
 		// notify via slack that a build has started
                 notifyBuild('STARTED Build Project ...')
-		test = docker.build('doker-hello-world -f Dockerfile')
+		sh "docker build --build-arg MICROSERVICE_NAME=\"${microserviceName}\" --build-arg HTTP_PROXY=\"${httpProxyUrl}\" --build-arg http_proxy=\"${httpProxyUrl}\" --build-arg HTTPS_PROXY=\"${httpProxyUrl}\" --build-arg https_proxy=\"${httpProxyUrl}\" -f Dockerfile -t \"${httpProxyUrl}\" ."
+		//test = docker.build('doker-hello-world -f Dockerfile')
 	        notifyBuild('DONE Build Project!')		
 		} catch(e) {
             currentBuild.result = "Checkout failed"
