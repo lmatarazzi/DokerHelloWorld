@@ -1,6 +1,6 @@
 #!groovy
 node  {
-	def BatchIlias
+	def doker-hello-world
 	// Stage 0 is the prefetch of the source code
 		stage('Prefetch') {
 		try {
@@ -32,7 +32,7 @@ node  {
 		try {
 		// notify via slack that a build has started
                 notifyBuild('STARTED Build Project ...')
-		BatchIlias = docker.build('doker-hello-world -f Dockerfile')
+		doker-hello-world = docker.build('doker-hello-world -f Dockerfile')
 	        notifyBuild('DONE Build Project!')		
 		} catch(e) {
             currentBuild.result = "Checkout failed"
