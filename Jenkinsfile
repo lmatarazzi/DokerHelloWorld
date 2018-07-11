@@ -1,6 +1,6 @@
 #!groovy
 node  {
-	def Hello-world
+	def test
 	// Stage 0 is the prefetch of the source code
 		stage('Prefetch') {
 		try {
@@ -32,7 +32,7 @@ node  {
 		try {
 		// notify via slack that a build has started
                 notifyBuild('STARTED Build Project ...')
-		Hello-world = docker.build('doker-hello-world -f Dockerfile')
+		test = docker.build('doker-hello-world -f Dockerfile')
 	        notifyBuild('DONE Build Project!')		
 		} catch(e) {
             currentBuild.result = "Checkout failed"
