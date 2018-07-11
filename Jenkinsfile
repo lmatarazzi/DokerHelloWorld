@@ -32,7 +32,7 @@ node  {
 		try {
 		// notify via slack that a build has started
                 notifyBuild('STARTED Build Project ...')
-		//BatchIlias = docker.build('BatchIlias -f dockerfile')
+		BatchIlias = docker.build('BatchIlias -f Dockerfile')
 	        notifyBuild('DONE Build Project!')		
 		} catch(e) {
             currentBuild.result = "Checkout failed"
