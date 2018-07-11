@@ -1,0 +1,28 @@
+#Creazione Immaggine Docker di Jenkinis.
+Creo Volume per salvare la configurazione ogni volta che spengo immaggine
+
+Creo Volume jenkins_configuration dove è salvata la configurazione
+
+docker volume create --name jenkins_configuration
+
+### Docve è contenuta immaggine docker
+root@rai-linux image-asset]# pwd
+/root/DevOp/Jenkins/image-asset
+[root@rai-linux image-asset]#
+
+
+
+docker build -t jenkins:leo --build-arg http_proxy=http://proxy.reply.it:8080 --build-arg https_proxy=http://proxy.reply.it:8080 .
+docker run -d --name myjenkins -v jenkins_configuration:/var/jenkins_home -p 8080:8080 -p 50000:50000 --env JENKINS_SLAVE_AGENT_PORT=50001 --env HTTPS_PROXY="https://proxy.reply.it:8080" --env HTTP_PROXY="http:///proxy.reply.it:8080" -v /var/run/docker.sock:/var/run/docker.sock  -v $(which docker):/usr/bin/docker jenkins:leo
+
+docker exec myjenkins cat /var/jenkins_home/secrets/initialAdminPassword
+5645108b05e64ca7b9562275f67aa442
+
+Progetto Prova
+--> https://github.com/lmatarazzi/DokerHelloWorld.git
+----
+JAVA Version
+OpenJDK Runtime Environment (build 1.8.0_171-8u171-b11-1~deb9u1-b11)
+OpenJDK 64-Bit Server VM (build 25.171-b11, mixed mode)
+
+
