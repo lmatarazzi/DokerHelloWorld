@@ -6,7 +6,7 @@ node ('Slave') {
 		try {
 		// notify via slack that a build has started
                 notifyBuild('STARTED Prefetcht ...')
-		//BatchIlias = docker.build('BatchIlias -f dockerfile')
+		echo "Prefetch Build"
 	        notifyBuild('DONE Prefetcht!')		
 		} catch(e) {
             		currentBuild.result = "Checkout failed"
