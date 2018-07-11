@@ -1,5 +1,5 @@
 #!groovy
-node ('Slave') {
+node  {
 	def BatchIlias
 	// Stage 0 is the prefetch of the source code
 		stage('Prefetch') {
