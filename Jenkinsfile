@@ -37,7 +37,7 @@ node  {
 		try {
 		// notify via slack that a build has started
                 notifyBuild('STARTED Build Project ...')
-		sh "docker build --build-arg MICROSERVICE_NAME=\"${microserviceName}\" --build-arg HTTP_PROXY=\"${httpProxyUrl}\" --build-arg http_proxy=\"${httpProxyUrl}\" --build-arg HTTPS_PROXY=\"${httpProxyUrl}\" --build-arg https_proxy=\"${httpProxyUrl}\" -f Dockerfile -t \"${httpProxyUrl}\" ."
+		sh "docker build --build-arg MICROSERVICE_NAME=\"${microserviceName}\" --build-arg HTTP_PROXY=\"${httpProxyUrl}\" --build-arg http_proxy=\"${httpProxyUrl}\" --build-arg HTTPS_PROXY=\"${httpProxyUrl}\" --build-arg https_proxy=\"${httpProxyUrl}\" -f Dockerfile -t \"${microserviceName}\" ."
 		//test = docker.build('doker-hello-world -f Dockerfile')
 	        notifyBuild('DONE Build Project!')		
 		} catch(e) {
