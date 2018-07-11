@@ -1,5 +1,5 @@
 FROM anapsix/alpine-java
 LABEL maintainer="l.matarazzi@reply.eu"
-COPY ./src/hello.java /home/hello.java
-RUN javac /home/hello.java
-CMD ["java","/home/hello"] 
+COPY /src/Hello.java /home/Hello.java
+RUN javac /home/Hello.java
+CMD ["java","/home/Hello"] 
