@@ -1,4 +1,4 @@
-FROM java:8
+FROM java
 LABEL maintainer="l.matarazzi@reply.eu"
 COPY /src/Hello.java /home/Hello.java
 RUN javac /home/Hello.java
