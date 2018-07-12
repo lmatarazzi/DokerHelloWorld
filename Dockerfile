@@ -1,5 +1,4 @@
-#FROM java
-FROM ppc64le/openjdk
+FROM java:7
 LABEL maintainer="l.matarazzi@reply.eu"
 COPY /src/Hello.java /home/Hello.java
 RUN javac /home/Hello.java
