@@ -1,5 +1,5 @@
 #!groovy
-node ('rai-win') {
+node ('rai-linux') {
 	// define a constant for the microservice that this Jenkinsfile refers to
 	def microserviceName = "docker-hello-world"
 	// define a constant for the http proxy to use to build the production image
